@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <title>Create a Business</title>
+</head>
+<body>
+    <h1>Create a New Business!</h1>
+    <a class="businesses-index-link" href="/businesses/">
+      <div class="index-link-text">Back to Businesses</div>
+    </a>
+  <form action="/businesses" method="POST">
+    <label for="name">Business Name:</label>
+    <input type="text" name="name" id="name" required />
+
+    <label for="category">Category:</label>
+    <input type="text" name="category" id="category" placeholder="e.g. Medical, IT Services" required />
+
+    <label for="description">Description:</label>
+    <textarea name="description" id="description" rows="4"></textarea>
+
+    <label for="location">Location:</label>
+    <input type="text" name="location" id="location" required />
+
+    <label for="phoneNumber">Phone Number:</label>
+    <input type="tel" name="phoneNumber" id="phoneNumber" placeholder="+973-1234-5678" />
+
+    <label for="website">Website:</label>
+    <input type="url" name="website" id="website" placeholder="https://example.com" />
+
+    <div class="checkbox-div">
+        <label for="isVerified">Verified Listing?</label>
+        <input type="checkbox" name="isVerified" id="isVerified" />
+    </div>
+
+    <button type="submit">Add Business</button>
+  </form>
+</body>
+</html>
