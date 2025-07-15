@@ -33,4 +33,26 @@ router.get('/:businessId', async (req, res) => {
     res.render('businesses/show.ejs', { foundBusiness: foundBusiness })
 })
 
+router.delete('/:businessId', async (req, res) => {
+    await Business.findByIdAndDelete(req.params.businessId)
+    res.redirect('/businesses')
+})
+
+// GET /businesses/:id/edit
+router.get('/:businessId/edit', async (req, res) => {
+	const foundBusiness = await Business.findById(req.params.businessId);
+	res.render('businesses/edit.ejs', { business: foundBusiness });
+});
+
+// PUT /businesses/:id
+router.put('/:businessId', async (req, res) => {
+	if (req.body.isVerified === 'on') {
+		req.body.isVerified = true
+	} else {
+		req.body.isVerified = false
+	}
+	await Business.findByIdAndUpdate(req.params.businessId, req.body)
+	res.redirect(`/businesses/${req.params.businessId}`)
+})
+
 module.exports = router
